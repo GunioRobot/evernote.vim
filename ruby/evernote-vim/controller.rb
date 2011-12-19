@@ -107,7 +107,7 @@ module EvernoteVim
       @noteStore = Evernote::EDAM::NoteStore::NoteStore::Client.new(noteStoreProtocol)
 
       @notebooks = @noteStore.listNotebooks(@authToken)
-      @notebooks.each { |notebook| 
+      @notebooks.each { |notebook|
         if (notebook.defaultNotebook)
           $curbuf.append(0, "* #{notebook.name} (default)")
         else
